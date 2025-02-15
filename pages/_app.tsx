@@ -1,8 +1,14 @@
-import type { AppProps } from 'next/app'
+import type {AppProps} from 'next/app'
 import '../styles/globals.scss'
+import MainProvider from '../app/providers/MainProvider';
 
-function MyApp({ Component, pageProps }: AppProps) {
-	return <Component {...pageProps} />
+function MyApp({Component, pageProps}: AppProps) {
+  return (
+    // @ts-ignore
+    <MainProvider>
+      <Component {...pageProps} />
+    </MainProvider>
+  )
 }
 
 export default MyApp
