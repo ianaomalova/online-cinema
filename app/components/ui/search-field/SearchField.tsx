@@ -8,6 +8,7 @@ interface ISearchField {
 }
 
 const SearchField: FC<ISearchField> = ({searchTerm, handleSearch}) => {
+  console.log('search field rendered');
   return (
     <div className={styles.search}>
       <MaterialIcon name='MdSearch' />
