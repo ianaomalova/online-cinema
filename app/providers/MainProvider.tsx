@@ -5,6 +5,8 @@ import ReduxToast from './ReduxToast';
 import {store} from '@/store/store';
 import {Provider} from 'react-redux';
 import HeadProvider from './HeadProvider/HeadProvider';
+import AuthProvider from './AuthProvider/AuthProvider';
+import {TypeComponentAuthFields} from '@/shared/types/auth.types';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -15,16 +17,18 @@ const queryClient = new QueryClient({
 });
 
 // @ts-ignore
-const MainProvider: FC = ({children}) => {
+const MainProvider: FC<TypeComponentAuthFields> = ({children, Component}) => {
   return (
     // @ts-ignore
     <HeadProvider>
       <Provider store={store}>
         <QueryClientProvider client={queryClient}>
-          <ReduxToast />
-          <Layout>
-            {children}
-          </Layout>
+          <ReduxToast/>
+          <AuthProvider Component={Component}>
+            <Layout>
+              {children}
+            </Layout>
+          </AuthProvider>
         </QueryClientProvider>
       </Provider>
     </HeadProvider>

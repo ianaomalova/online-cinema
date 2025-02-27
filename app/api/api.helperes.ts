@@ -1,5 +1,3 @@
-import {Simulate} from 'react-dom/test-utils';
-
 export const getContentType = () => ({
   'Content-Type': 'application/json'
 })

@@ -1,4 +1,4 @@
-import {FC} from 'react';
+import {FC, useEffect, useState} from 'react';
 import {useAuth} from '@/hooks/useAuth';
 import MenuItem from '@/components/layout/Navigation/MenuContainer/MenuItem';
 import LogoutButton from '@/components/layout/Navigation/MenuContainer/auth/LogoutButton';
@@ -6,6 +6,14 @@ import {getAdminHomeUrl} from '@/config/url.config';
 
 const AuthItems: FC = () => {
   const {user} = useAuth()
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return null;
+
   return (
     <>
       {user ?
