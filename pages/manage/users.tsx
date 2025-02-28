@@ -1,10 +1,9 @@
 import {NextPageAuth} from '@/shared/types/auth.types';
+import UserList from '@/screens/admin/users/UserList';
 
 const UserListPage: NextPageAuth = () => {
   return (
-    <>
-
-    </>
+    <UserList />
   );
 };
 

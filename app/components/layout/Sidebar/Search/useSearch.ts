@@ -4,7 +4,6 @@ import {useQuery} from 'react-query';
 import {MoviesService} from '@/services/movie.services';
 
 export const useSearch = () => {
-  console.log('use search rendered');
   const [searchTerm, setSearchTerm] = useState('');
   const debouncedSearch = useDebounce(searchTerm, 500);
 
