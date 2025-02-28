@@ -1,5 +1,6 @@
-import {ButtonHTMLAttributes, InputHTMLAttributes} from 'react';
-import {FieldError, FieldErrors} from 'react-hook-form';
+import {ButtonHTMLAttributes, ChangeEvent, InputHTMLAttributes} from 'react';
+import {FieldError} from 'react-hook-form';
+import {EditorProps} from 'react-draft-wysiwyg';
 
 export interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
@@ -11,3 +12,10 @@ export interface IFieldProps {
 type TypeInputPropsField = InputHTMLAttributes<HTMLInputElement> & IFieldProps
 
 export interface IField extends TypeInputPropsField {}
+
+type TypeEditorPropsField = EditorProps & IFieldProps;
+
+export interface ITextEditor extends Omit<TypeEditorPropsField, 'editorState'> {
+  onChange: (...event: any[]) => void
+  value: string
+}
