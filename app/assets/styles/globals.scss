@@ -4,6 +4,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Quicksand:wght@300..700&display=swap');
 @import "react-redux-toastr/src/styles/index";
+@import "react-select";
 
 html,
 body {
@@ -44,5 +45,9 @@ input[type='file']::-webkit-file-upload-button {
 
 input:focus {
 	box-shadow: none !important;
+}
+
+.admin-form {
+	@apply w-1/2 mt-12
 }
 
